@@ -1,0 +1,225 @@
+@import "./mixins";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html{
+    scroll-behavior: smooth;
+}
+
+$brand: rgb(251, 163, 178);
+$brandText: #252ef3;
+$white: #ffffff;
+$body: #e8ecf2;
+$neu: #e8ecf2;
+$neu-dark-color: #73787d;
+$neu-box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8), 5px 5px 10px rgba(0,0,0,0.25);
+$neu-box-shadow-hover: -1px -1px 5px rgba(255, 255, 255, 0.6), 1px 1px 5px rgba(0,0,0,0.3);
+
+body{
+    line-height: 1.7;
+    background-color: $body;
+    font-size: 1rem;
+    scroll-behavior: smooth;
+}
+
+img {
+    width: 100%;
+}
+
+ul {
+    text-decoration: none;    
+}
+
+li{
+    list-style-type: none;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-weight: 700;
+}
+
+a {
+    @include transition-ease;
+    text-decoration: none;
+
+    &:hover{
+        color: $brandText;
+    }
+}
+
+.navbar{
+    box-shadow: $neu-box-shadow;
+}
+
+section {
+    padding: 80px 0;
+}
+
+.btn{
+    color: $neu-dark-color;
+    background: $neu;
+    border-radius: 9999px;
+    box-shadow: $neu-box-shadow;
+    border: 4px solid $neu;
+    padding: 6px 17px;
+    @include transition-ease;
+
+    &:hover{
+        box-shadow: $neu-box-shadow-hover;
+    }
+}
+
+// video
+
+#hero{
+    z-index: 2;
+    position: relative;
+    padding-top: 200px;
+    padding-bottom: 200px;
+    /* Will not allow the video to overflow the 
+    container */
+    overflow: hidden;
+}
+
+.overlay{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to right,rgba(43, 46, 46, 0.7), rgba(46, 45, 46, 0.7));
+    z-index: -1;
+}
+
+#backgroundVideo{
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+}
+
+.person-img{
+    
+    & img{
+        border-radius: 1000px;
+        border-radius: 50%;
+        border: 3px solid $brandText;
+    }
+}
+
+#about {
+
+    & .intro-h6{
+        color: $brandText;
+    }
+}
+
+
+.section-title{
+
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto 40px auto;
+
+    & h6 {
+        color: $brandText;
+    }
+}
+
+.gallery-img {
+
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+    @include transition-ease;
+    border-radius: 30px;
+
+    & img {
+        height: 100%;
+        object-fit: cover;
+        @include transition-ease;
+        border-radius: 10px;
+    }
+
+    &:hover img{
+        transform: scale(1.2)
+    }
+}
+
+.work{
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+    padding: 44px 16px 44px 18px;
+    @include transition-ease;
+
+    &::before{
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color:rgba(38, 41, 53, 0.1);
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: -1;
+    }
+
+    &:hover .icon-huge{
+        right: 0;
+        bottom: 0;
+    }
+}
+
+.icon-huge{
+    @include transition-ease;
+    font-size: 130px;
+    position: absolute;
+    opacity: 0.06;
+    line-height: 1;
+    right: -50px;
+    bottom: -50px;
+}
+
+// footer
+
+footer {
+    background-color: $brandText;
+    color: $white;
+}
+
+.footer-bottom{
+    padding: 30px 0;
+}
+
+.social-links a{
+    width: 2.25rem;
+    height: 2.25rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.125rem;
+    border-radius: 100px;
+    background-color: $white;
+    margin-left: 5px;
+    transition: all 1s ease;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    
+    & i{
+        transition: all 1s ease;
+    }
+
+    & i:hover{
+        transform: scale(1.8);
+    }
+}
